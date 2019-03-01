@@ -1,0 +1,33 @@
+{% import '@cgov_common/content_page_macros.twig' as contentPageMacros %}
+<!-- ********************************* BEGIN Page Content ********************************** -->
+<div id="main" class="medium-9 columns contentzone has-section-nav" role="main">
+  <article>
+    <div class="resize-content">
+      <h1>
+        {{ node.label }}
+      </h1>
+
+      <div id="nvcgSubTitle">
+        <div class="subscribeRSS"><a class="blogRSS" href="#"><span>Subscribe</span></a></div>
+      </div>
+
+      <div id="cgvBody">
+        {{ contentPageMacros.displayDates(node,content) }}
+        {{ content.field_image_article }}
+        {{ content.field_intro_text }}
+        {{ content.body }}
+      </div>
+    </div>
+  </article>
+</div>
+
+<div id="nvcgSlListBlogRTRail" class="medium-3 columns right right-rail">
+  {{ drupal_block('cgov_blog_featured_posts') }}
+  {{ drupal_block('cgov_blog_categories') }}
+  {{ drupal_block('cgov_blog_archive') }}
+</div>
+
+<footer class="article-footer">
+  {{ content.field_related_resources }}
+  {#{{ content.field_public_use }}#}
+</footer>
